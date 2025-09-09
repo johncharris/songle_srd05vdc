@@ -9,3 +9,14 @@ builds:
         entry: optocoupler-relay-driver.ato:songle_srd05vdc
     example:
         entry: optocoupler-relay-driver.ato:Example
+
+package:
+  identifier: johncharris/songle-srd05vdc
+  repository: https://github.com/johncharris/songle_srd05vdc
+  homepage: https://github.com/johncharris/songle_srd05vdc
+  version: "0.1.0"
+  authors:
+    - name: John Harris
+      email: john@ziatech.net
+  summary: "Songle 5v Relay"
+  license: "MIT license"
