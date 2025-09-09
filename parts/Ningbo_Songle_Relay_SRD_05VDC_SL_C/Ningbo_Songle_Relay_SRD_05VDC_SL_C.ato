@@ -1,0 +1,23 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Ningbo_Songle_Relay_SRD_05VDC_SL_C_package:
+    """SRD-05VDC-SL-C"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C35449", date="2025-09-08T22:35:03.444804+00:00", checksum="e5aeb28fa736aba20a815aa263a95cbe6f2a5327724fd159c0f7568fa111c58c">
+
+    trait is_atomic_part<manufacturer="Ningbo Songle Relay", partnumber="SRD-05VDC-SL-C", footprint="RELAY-TH_SRD-XXVDC-XL-C.kicad_mod", symbol="SRD-05VDC-SL-C.kicad_sym", model="RELAY-TH_L19.2-W15.6-H15.8.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C35449", manufacturer="Ningbo Songle Relay", partno="SRD-05VDC-SL-C">
+    trait has_designator_prefix<prefix="RLY">
+
+    # pins
+    pin 1
+    pin 2
+    pin 3
+    pin 4
+    pin 5

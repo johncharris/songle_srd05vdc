@@ -1,0 +1,11 @@
+requires-atopile: '^0.9.0'
+
+paths:
+    src: '.'
+    layout: ./layouts
+
+builds:
+    default:
+        entry: optocoupler-relay-driver.ato:songle_srd05vdc
+    example:
+        entry: optocoupler-relay-driver.ato:Example

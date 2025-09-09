@@ -1,0 +1,94 @@
+import Resistor, Diode, NFET, Relay, LED
+import Electrical, ElectricLogic, ElectricPower
+from "parts/GOODWORK_PC817C/GOODWORK_PC817C.ato" import GOODWORK_PC817C_package
+from "parts/Ningbo_Songle_Relay_SRD_05VDC_SL_C/Ningbo_Songle_Relay_SRD_05VDC_SL_C.ato" import Ningbo_Songle_Relay_SRD_05VDC_SL_C_package
+from "parts/DIBO_DB127V_5_08_3P_GN_S/DIBO_DB127V_5_08_3P_GN_S.ato" import DIBO_DB127V_5_08_3P_GN_S_package
+from "parts/Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350/Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350.ato" import Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350_package
+from "parts/Changjiang_Electronics_Tech_1N4148WS/Changjiang_Electronics_Tech_1N4148WS.ato" import Changjiang_Electronics_Tech_1N4148WS_package  
+
+# Songle SRD-05VDC Relay Driver Module
+module songle_srd05vdc:
+    # Control input interface
+    control_input = new ElectricLogic
+    control_input.required = True
+    
+    # Power supply for relay coil  
+    power_5v = new ElectricPower
+    assert power_5v.voltage within 4.5V to 5.5V
+    power_5v.required = True
+    
+    # Terminal connector outputs (U2: DB127V-5.08-3P-GN-S)
+    terminal_com = new Electrical     # Common terminal
+    terminal_no = new Electrical      # Normally Open terminal  
+    terminal_nc = new Electrical      # Normally Closed terminal
+    
+    # Components
+    relay = new Ningbo_Songle_Relay_SRD_05VDC_SL_C_package
+    optocoupler = new GOODWORK_PC817C_package
+    terminal_block = new DIBO_DB127V_5_08_3P_GN_S_package  # 3-position terminal block
+    output_transistor = new Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350_package  # S8050 NPN transistor
+    flyback_diode = new Changjiang_Electronics_Tech_1N4148WS_package  # 1N4148WS diode
+    
+    # Resistors
+    input_resistor = new Resistor     # R1 - 1kΩ for PC817C input LED
+    input_resistor.resistance = 1kohm +/- 5%
+    input_resistor.package = "0402"
+    
+
+    base_resistor = new Resistor      # R4 - 1kΩ for transistor base
+    base_resistor.resistance = 1kohm +/- 5%
+    base_resistor.package = "0402"
+    
+    # Connect relay coil - matches schematic relay connections
+    power_5v.hv ~ relay.4                    # +5V to relay coil pin 4
+    relay.1 ~ output_transistor.C            # Relay coil pin 1 (GND) to Q1 collector
+    
+    # PC817C input side (isolated from relay circuit) - matches schematic left side
+    control_input.line ~ input_resistor.unnamed[0]  # Signal to R1
+    input_resistor.unnamed[1] ~ optocoupler.1       # R1 to PC817C pin 1 (anode)
+    optocoupler.2 ~ control_input.reference.lv      # PC817C pin 2 (cathode) to GND
+    
+    # PC817C output side controls S8050 transistor - matches schematic right side
+    optocoupler.4 ~ power_5v.hv                     # PC817C collector to +5V
+    optocoupler.3 ~ base_resistor.unnamed[0]        # PC817C emitter to R4
+    base_resistor.unnamed[1] ~ output_transistor.B   # R4 to Q1 base
+    
+    # Output transistor (Q1 S8050) switches relay coil low side  
+    output_transistor.E ~ power_5v.lv                   # Q1 emitter to GND
+    
+    # Flyback diode for coil protection (across relay coil)
+    relay.4 ~ flyback_diode.K        # Coil positive (+5V) to diode cathode
+    flyback_diode.A ~ relay.1        # Diode anode to coil negative (GND)
+    
+    # Connect relay contacts to terminal connector (U2)
+    relay.2 ~ terminal_block.1   # Relay NO to terminal block pin 1
+    relay.5 ~ terminal_block.2   # Relay Common to terminal block pin 2
+    relay.3 ~ terminal_block.3   # Relay NC to terminal block pin 3
+
+    terminal_block.1 ~ terminal_no   # Relay NO to terminal block pin 1
+    terminal_block.2 ~ terminal_com  # Relay Common to terminal block pin 2
+    terminal_block.3 ~ terminal_nc   # Relay NC to terminal block pin 3
+
+
+# Example usage
+module Example:
+    # Power supplies
+    power = new ElectricPower
+    
+    # Control signal from microcontroller
+    mcu_pin = new ElectricLogic
+    
+    # Load to switch
+    load_supply = new Electrical
+    load_device = new Electrical
+    
+    # Relay driver instance
+    relay_driver = new songle_srd05vdc
+    
+    # Connections
+    power ~ relay_driver.power_5v
+    mcu_pin ~ relay_driver.control_input
+    
+    # Switch the load using relay normally open contact via terminals
+    load_supply ~ relay_driver.terminal_com
+    relay_driver.terminal_no ~ load_device
