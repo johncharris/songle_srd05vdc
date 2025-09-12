@@ -2,7 +2,7 @@ import Resistor, Diode, NFET, Relay, LED
 import Electrical, ElectricLogic, ElectricPower
 from "parts/GOODWORK_PC817C/GOODWORK_PC817C.ato" import GOODWORK_PC817C_package
 from "parts/Ningbo_Songle_Relay_SRD_05VDC_SL_C/Ningbo_Songle_Relay_SRD_05VDC_SL_C.ato" import Ningbo_Songle_Relay_SRD_05VDC_SL_C_package
-from "parts/DIBO_DB127V_5_08_3P_GN_S/DIBO_DB127V_5_08_3P_GN_S.ato" import DIBO_DB127V_5_08_3P_GN_S_package
+from "parts/Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P/Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P.ato" import Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P_package
 from "parts/Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350/Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350.ato" import Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350_package
 from "parts/Changjiang_Electronics_Tech_1N4148WS/Changjiang_Electronics_Tech_1N4148WS.ato" import Changjiang_Electronics_Tech_1N4148WS_package  
 
@@ -25,7 +25,7 @@ module songle_srd05vdc:
     # Components
     relay = new Ningbo_Songle_Relay_SRD_05VDC_SL_C_package
     optocoupler = new GOODWORK_PC817C_package
-    terminal_block = new DIBO_DB127V_5_08_3P_GN_S_package  # 3-position terminal block
+    terminal_block = new Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P_package  # 3-position terminal block
     output_transistor = new Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350_package  # S8050 NPN transistor
     flyback_diode = new Changjiang_Electronics_Tech_1N4148WS_package  # 1N4148WS diode
     

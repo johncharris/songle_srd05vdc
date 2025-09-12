@@ -1,0 +1,153 @@
+(footprint "Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P:CONN-TH_3P-P3.81_WJ15EDGRC-3.81-3P"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "788e9aea-84d7-4ee8-9d30-b79a9c416c1b")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "CONN-TH_3P-P3.81_WJ15EDGRC-3.81-3P"
+        (at 0 4 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "d8d116e4-85e5-40eb-970a-ebb98fce232b")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "421be1e5c837af7b1018fe3dc2ce690cffcd8d0da54371fe0b99f2e692533202"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "1ea2a3c8-a859-40ad-be8d-4c6593dc63c4")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr through_hole)
+    (fp_line
+        (start 6.15 -1.6)
+        (end -6.15 -1.6)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "d646dd01-0b7b-4f5e-9af7-83b82be6d3c2")
+    )
+    (fp_line
+        (start -6.15 -1.6)
+        (end -6.15 7.55)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "97686a2a-b56a-4884-95fb-cd6f581fb18c")
+    )
+    (fp_line
+        (start -6.15 7.55)
+        (end 6.15 7.55)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "29368fee-227b-44b4-8d81-b9c6cae65f69")
+    )
+    (fp_line
+        (start 6.15 7.55)
+        (end 6.15 -1.6)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "aec58d9e-b53c-4496-8221-7a6d805b289e")
+    )
+    (fp_circle
+        (center -6.16 7.55)
+        (end -6.13 7.55)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "4bbfc476-3d2b-4e1b-9452-4b063bd5967a")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "9ec8e4ac-fe8a-4448-9279-812685268643")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (uuid "788e9aea-84d7-4ee8-9d30-b79a9c416c1b")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "1" thru_hole rect
+        (at -3.81 0 0)
+        (size 2.2 2.2)
+        (drill 1.2599924)
+        (layers "*.Cu" "*.Mask")
+        (uuid "8a5926a7-9c5f-4378-a5fd-dab934b5e305")
+    )
+    (pad "2" thru_hole circle
+        (at 0 0 0)
+        (size 2.2 2.2)
+        (drill 1.2599924)
+        (layers "*.Cu" "*.Mask")
+        (uuid "c9fc6b5c-719b-4576-bae4-e8571280f831")
+    )
+    (pad "3" thru_hole circle
+        (at 3.81 0 0)
+        (size 2.2 2.2)
+        (drill 1.2599924)
+        (layers "*.Cu" "*.Mask")
+        (uuid "aff4ebd6-f5c5-43c2-841f-2352272e6c7e")
+    )
+    (model "${KIPRJMOD}/../../parts/Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P/CONN-TH_3P_L12.3-W9.2-H7.0-P3.81.step"
+        (offset
+            (xyz 0 -3 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 0)
+        )
+    )
+)

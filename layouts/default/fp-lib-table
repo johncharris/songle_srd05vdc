@@ -15,18 +15,18 @@
         (descr "atopile: part lib: Changjiang_Electronics_Tech_S8050_J3Y_RANGE_200_350")
     )
     (lib
-        (name "DIBO_DB127V_5_08_3P_GN_S")
-        (type "KiCad")
-        (uri "${KIPRJMOD}/../../parts/DIBO_DB127V_5_08_3P_GN_S")
-        (options "")
-        (descr "atopile: part lib: DIBO_DB127V_5_08_3P_GN_S")
-    )
-    (lib
         (name "GOODWORK_PC817C")
         (type "KiCad")
         (uri "${KIPRJMOD}/../../parts/GOODWORK_PC817C")
         (options "")
         (descr "atopile: part lib: GOODWORK_PC817C")
+    )
+    (lib
+        (name "Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../parts/Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P")
+        (options "")
+        (descr "atopile: part lib: Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P")
     )
     (lib
         (name "Ningbo_Songle_Relay_SRD_05VDC_SL_C")

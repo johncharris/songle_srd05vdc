@@ -1,0 +1,21 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Ningbo_Kangnex_Elec_WJ15EDGRC_3_81_3P_package:
+    """WJ15EDGRC-3.81-3P"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C8406", date="2025-09-12T21:23:26.005688+00:00", checksum="d3544d5c65e8f06fb7772ef062fd1d5ddbdcb65f021ed78652333ea80c5355c2">
+
+    trait is_atomic_part<manufacturer="Ningbo Kangnex Elec", partnumber="WJ15EDGRC-3.81-3P", footprint="CONN-TH_3P-P3.81_WJ15EDGRC-3.81-3P.kicad_mod", symbol="WJ15EDGRC-3.81-3P.kicad_sym", model="CONN-TH_3P_L12.3-W9.2-H7.0-P3.81.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C8406", manufacturer="Ningbo Kangnex Elec", partno="WJ15EDGRC-3.81-3P">
+    trait has_designator_prefix<prefix="P">
+
+    # pins
+    pin 1
+    pin 2
+    pin 3
